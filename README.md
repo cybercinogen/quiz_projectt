@@ -12,8 +12,8 @@ This is a simple Django-based quiz application that fulfills the following funct
    The user can submit their answer, and the app updates their quiz session statistics (total answered, correct, incorrect).
 
 4. **View Quiz Results and Stats:**  
-   After completing the quiz or reaching the chosen question limit, the user can view total questions answered, correct/incorrect count, accuracy, and time taken for the quiz.  
-   Additionally, the results page shows where questions came from (if `source_url` is provided), allowing the user to learn more about the topic.
+   After completing the quiz or reaching the chosen question limit, the user can view total questions answered, correct/incorrect count, accuracy, and time taken.  
+   Additionally, the results page can show where questions came from (if `source_url` is provided), allowing the user to learn more about the topic.
 
 ## Additional Features
 
@@ -25,6 +25,18 @@ This is a simple Django-based quiz application that fulfills the following funct
 
 - **Enhanced UI/UX Dashboard:**  
   The result page acts as a dashboard, showing accuracy and time taken. If questions have a `source_url`, the user can easily access further learning materials.
+  
+## Django Admin Panel
+
+Below are examples of how the Django admin panel looks. From here, you can add or edit questions.
+
+**Add Question Page:**
+![Add Question](images/add_question.png)
+
+**Edit Question Page:**
+![Edit Question](images/edit_question.png)
+
+
 
 ## Assumptions
 
@@ -33,4 +45,57 @@ This is a simple Django-based quiz application that fulfills the following funct
 - No separate UI for question creation is required by the assignment (admin panel usage is acceptable).
 
 ## Project Structure
+quiz_project/
+├─ quiz_project/
+│  ├─ __init__.py
+│  ├─ asgi.py
+│  ├─ settings.py
+│  ├─ urls.py
+│  └─ wsgi.py
+├─ quiz_app/
+│  ├─ __init__.py
+│  ├─ admin.py
+│  ├─ apps.py
+│  ├─ migrations/
+│  │  └─ __init__.py
+│  ├─ models.py
+│  ├─ templates/
+│  │  └─ quiz_app/
+│  │     ├─ dashboard.html
+│  │     ├─ home.html
+│  │     ├─ question.html
+│  │     └─ result.html
+│  ├─ urls.py
+│  └─ views.py
+├─ images/
+│  ├─ Screenshot 2024-12-18 152642.png
+│  └─ Screenshot 2024-12-18 152650.png
+├─ manage.py
+└─ requirements.txt
+
+
+## Setup Instructions
+
+**Install Requirements:**
+```bash
+pip install -r requirements.txt
+
+Migrate the Database:
+python manage.py makemigrations
+python manage.py migrate
+
+Create Superuser (Optional):
+python manage.py createsuperuser
+
+Run the Server:
+python manage.py runserver
+
+Visit http://127.0.0.1:8000/ to start the quiz.
+
+
+
+
+
+
+
 
